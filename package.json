@@ -1,0 +1,32 @@
+{
+  "name": "abby",
+  "version": "0.1.0",
+  "description": "Betting site scraper and analysis back-end application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanja1victor/abby.git"
+  },
+  "keywords": [
+    "sports",
+    "betting",
+    "scrapper",
+    "bet-analysis"
+  ],
+  "author": "Victor Karanja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karanja1victor/abby/issues"
+  },
+  "homepage": "https://github.com/karanja1victor/abby#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "puppeteer": "^13.0.1"
+  }
+}
