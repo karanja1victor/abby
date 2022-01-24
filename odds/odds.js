@@ -123,10 +123,9 @@ function Odds() {
             });
             return links;
         }
-        this.betwayRawOdds = async (browser, links) => {
+        this.betwayRawOdds = async (page, links) => {
             let rawOdds = [];
             for await (let link of links) {
-                let page = await browser.newPage();
                 await page.goto(link, {timeout: 0, waitUntil: [ "domcontentloaded", "networkidle2"]});
                 let pageOdds = await page.$$eval("div.outcome-pricedecimal", odds => {
                     return odds.map(odd => odd.innerText.trim());
@@ -183,7 +182,7 @@ function Odds() {
                 let adversaries = await this.opponents(sessionData);
                 let sportpesaOdds = await this.sportpesaOdds(sessionData);
                 let links = await this.betwayLinks(adversaries);
-                let rawOdds = await this.betwayRawOdds(browser, links);
+                let rawOdds = await this.betwayRawOdds(page, links);
                 let betwayOdds = await this.betwayOdds(rawOdds);
                 await browser.close();
                 
