@@ -182,13 +182,10 @@ function Odds() {
                 let IDs = await this.IDs(sessionData);
                 let adversaries = await this.opponents(sessionData);
                 let sportpesaOdds = await this.sportpesaOdds(sessionData);
-                await browser.close();
-
-                const browser2 = await puppeteer.launch();
                 let links = await this.betwayLinks(adversaries);
-                let rawOdds = await this.betwayRawOdds(browser2, links);
+                let rawOdds = await this.betwayRawOdds(browser, links);
                 let betwayOdds = await this.betwayOdds(rawOdds);
-                await browser2.close();
+                await browser.close();
                 
                 let data = async () => {
                     let data = [];
